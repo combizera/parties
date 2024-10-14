@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
         if(App::isLocal()){
             $this->call([
                 PartySeeder::class,
+                GuestSeeder::class,
             ]);
         }
     }
