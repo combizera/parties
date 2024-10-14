@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\App;
 
 class DatabaseSeeder extends Seeder
 {
@@ -15,5 +16,11 @@ class DatabaseSeeder extends Seeder
             'email' => 'admin@advbox.com.br',
             'password' => 'admin@advbox.com.br',
         ]);
+
+        if(App::isLocal()){
+            $this->call([
+                PartySeeder::class,
+            ]);
+        }
     }
 }
